@@ -22,7 +22,7 @@ startup_32:
 	mov %ax,%fs
 	mov %ax,%gs
     mov %ax,%ss
-    lea user_stack,%esp
+    lea user_stack+4096,%esp
 #	lss stack_start,%esp
 	call setup_idt
 	call setup_gdt
@@ -32,7 +32,7 @@ startup_32:
 	mov %ax,%fs
 	mov %ax,%gs
     mov %ax,%ss
-    lea user_stack,%esp
+    lea user_stack+4096,%esp
 #	lss stack_start,%esp
 	xorl %eax,%eax
 1:	incl %eax		# check that A20 really IS enabled
